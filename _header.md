@@ -1,8 +1,8 @@
 # Compute web tier
 
-This module simulate a module would be created by the infrastructure/VM team for an architecture.
-In this module, we will use to create NIC, Vms, datadisks.
+This module simulates one that would be created by the Infrastructure/VM team for an architecture.
+In this module, we will use Terraform to create NICs, VMs, and data disks.
 
-This is a very easy architecture but we will try to simulate real time IT team working and collaboration with good practice.
+Although this is a simple architecture, we aim to simulate real-time IT team workflows and collaboration following best practices.
 
 Here I use the `for_each` as much as possible.
