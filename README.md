@@ -1,10 +1,10 @@
 <!-- BEGIN_TF_DOCS -->
 # Compute web tier
 
-This module simulate a module would be created by the infrastructure/VM team for an architecture.
-In this module, we will use to create NIC, Vms, datadisks.
+This module simulates one that would be created by the Infrastructure/VM team for an architecture.
+In this module, we will use Terraform to create NICs, VMs, and data disks.
 
-This is a very easy architecture but we will try to simulate real time IT team working and collaboration with good practice.
+Although this is a simple architecture, we aim to simulate real-time IT team workflows and collaboration following best practices.
 
 Here I use the `for_each` as much as possible.
 
@@ -53,12 +53,12 @@ resource "azurerm_linux_virtual_machine" "this" {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
-  source_image_reference {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "18.04-LTS"
-    version   = "latest"
-  }
+source_image_reference {
+  publisher = "Canonical"
+  offer     = "0001-com-ubuntu-server-jammy"
+  sku       = "22_04-lts"
+  version   = "latest"
+}
 
   #   custom_data = filebase64("${path.module}/${var.filename}")
   custom_data = each.value.cloud_init_file != null ? filebase64(each.value.cloud_init_file) : null
@@ -170,5 +170,5 @@ Description: n/a
 
 No modules.
 
-This module created by paul for eductional and preparation for Terraform associate 003 purpous.
+This module was created by Paul for educational purposes and to prepare for the Terraform Associate (003) exam.
 <!-- END_TF_DOCS -->
