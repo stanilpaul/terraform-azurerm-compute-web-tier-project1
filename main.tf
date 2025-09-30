@@ -42,12 +42,12 @@ resource "azurerm_linux_virtual_machine" "this" {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
-  source_image_reference {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "18.04-LTS"
-    version   = "latest"
-  }
+source_image_reference {
+  publisher = "Canonical"
+  offer     = "0001-com-ubuntu-server-jammy"
+  sku       = "22_04-lts"
+  version   = "latest"
+}
 
   #   custom_data = filebase64("${path.module}/${var.filename}")
   custom_data = each.value.cloud_init_file != null ? filebase64(each.value.cloud_init_file) : null
